@@ -12,4 +12,15 @@ class ChangerTest < MiniTest::Test
     assert_respond_to(Changer, :run)
   end
 
+  def test_run_returns_coin
+    assert_equal([1], Changer.run(1))
+    assert_equal([5], Changer.run(5))
+    assert_equal([10], Changer.run(10))
+    assert_equal([25], Changer.run(25))
+  end
+
+  def test_run_returns_coins
+    assert_equal([10, 10, 1, 1, 1, 1], Changer.run(24))
+  end
+
 end
